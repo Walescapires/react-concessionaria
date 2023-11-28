@@ -46,7 +46,6 @@ const ClienteForm = ({ navigation, route }) => {
   return (
     <>
       <ScrollView style={{ margin: 15 }}>
-        <Text style={{ textAlign: 'center' }}>Formulário do Aluno</Text>
         <Formik
           initialValues={clientes}
           validationSchema={clienteValidator}

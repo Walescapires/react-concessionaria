@@ -60,9 +60,9 @@ const OficinaForm = ({ navigation, route }) => {
                         selectedValue={values.nome}
                         onValueChange={handleChange('nome')}>
                         <Picker.Item label="Servico" value="" />
-                        <Picker.Item label="trocadeoleo" value="Troca de oleo" />
-                        <Picker.Item label="revisao" value="Revisao" />
-                        <Picker.Item label="trocadepneus" value="Troca de pneus" />
+                        <Picker.Item label="Troca de oleo" value="Troca de oleo" />
+                        <Picker.Item label="Revisão" value="Revisao" />
+                        <Picker.Item label="Troca de pneus" value="Troca de pneus" />
                     </Picker>
 
                     <TextInput style={{ marginTop: 10 }}

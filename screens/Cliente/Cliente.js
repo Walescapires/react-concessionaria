@@ -34,7 +34,7 @@ const Cliente = ({ navigation }) => {
   }
 
   function excluir() {
-    alunos.splice(idExcluir, 1)
+    clientes.splice(idExcluir, 1)
     AsyncStorage.setItem('clientes', JSON.stringify(clientes))
     carregarDados()
     setVisible(false)

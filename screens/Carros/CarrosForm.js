@@ -11,12 +11,15 @@ const CarrosForm = ({ navigation, route }) => {
         modelo: '',
         ano: '',
         fabricante: '',
-        cliente_id: '',
+        clientes_id: '',
         concessionaria_id: '',
-        acessorio_id: '',
+        acessorios_id: '',
     }
 
-    const [carros, setCarros] = useState([])
+
+    const [clientes, setClientes] = useState([])
+    const [concessionaria, setConcessionaria] = useState([])
+    const [acessorios, setAcessorios] = useState([])
 
     const id = route.params?.id
 
@@ -25,21 +28,21 @@ const CarrosForm = ({ navigation, route }) => {
     }
 
     useEffect(() => {
-        AsyncStorage.getItem('cliente').then(resultado => {
+        AsyncStorage.getItem('clientes').then(resultado => {
             resultado = JSON.parse(resultado) || []
-            setCarros(resultado)
+            setClientes(resultado)
         })
     }, []);
     useEffect(() => {
         AsyncStorage.getItem('concessionaria').then(resultado => {
             resultado = JSON.parse(resultado) || []
-            setCarros(resultado)
+            setConcessionaria(resultado)
         })
     }, []);
     useEffect(() => {
-        AsyncStorage.getItem('acessorio').then(resultado => {
+        AsyncStorage.getItem('acessorios').then(resultado => {
             resultado = JSON.parse(resultado) || []
-            setCarros(resultado)
+            setAcessorios(resultado)
         })
     }, []);
 
@@ -105,22 +108,24 @@ const CarrosForm = ({ navigation, route }) => {
                             }
 
                             <Picker
-                                selectedValue={values.cliente_id}
-                                onValueChange={handleChange('cliente_id')}>
-                                <Picker.Item label='Cliente' value='' />
-                                {cliente.map((item, i) => (
+                                style={{ marginTop: 10 }}
+                                selectedValue={values.clientes_id}
+                                onValueChange={handleChange('clientes_id')}>
+                                <Picker.Item label='Clientes' value='' />
+                                {clientes.map((item, i) => (
                                     <Picker.Item key={i}
                                         label={item.nome}
                                         value={item.nome}
                                     />
                                 ))}
                             </Picker>
-                            {(errors.cliente_id && touched.cliente_id) &&
+                            {(errors.clientes_id && touched.clientes_id) &&
                                 <Text style={{ color: 'red', marginTop: 5 }}>
-                                    {errors.cliente_id}
+                                    {errors.clientes_id}
                                 </Text>
                             }
                             <Picker
+                                style={{ marginTop: 10 }}
                                 selectedValue={values.concessionaria_id}
                                 onValueChange={handleChange('concessionaria_id')}>
                                 <Picker.Item label='Concessionaria' value='' />
@@ -137,19 +142,20 @@ const CarrosForm = ({ navigation, route }) => {
                                 </Text>
                             }
                             <Picker
-                                selectedValue={values.acessorio_id}
-                                onValueChange={handleChange('acessorio_id')}>
+                                style={{ marginTop: 10 }}
+                                selectedValue={values.acessorios_id}
+                                onValueChange={handleChange('acessorios_id')}>
                                 <Picker.Item label='Acessorios' value='' />
-                                {acessorio.map((item, i) => (
+                                {acessorios.map((item, i) => (
                                     <Picker.Item key={i}
                                         label={item.nome}
                                         value={item.nome}
                                     />
                                 ))}
                             </Picker>
-                            {(errors.acessorio_id && touched.acessorio_id) &&
+                            {(errors.acessorios_id && touched.acessorios_id) &&
                                 <Text style={{ color: 'red', marginTop: 5 }}>
-                                    {errors.acessorio_id}
+                                    {errors.acessorios_id}
                                 </Text>
                             }
                             <Button onPress={handleSubmit}>Salvar</Button>
