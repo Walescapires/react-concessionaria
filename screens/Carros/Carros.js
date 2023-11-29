@@ -6,7 +6,7 @@ import { ScrollView } from 'react-native'
 import { Button, Card, Dialog, FAB, IconButton, Portal, Text } from 'react-native-paper'
 
 const Carros = ({ navigation }) => {
-    
+
     const [carros, setCarros] = useState([])
     const [idExcluir, setIdExcluir] = useState(0)
 
@@ -40,6 +40,7 @@ const Carros = ({ navigation }) => {
         carregarDados()
         setVisible(false)
     }
+
     return (
         <>
             <ScrollView style={{ padding: 15 }}>
@@ -47,12 +48,12 @@ const Carros = ({ navigation }) => {
                 {carros.map((item, i) => (
                     <Card key={i} mode='outlined' style={{ marginBottom: 10 }}>
                         <Card.Content>
-                            <Text variant="bodyMedium">Modelo {item.modelo}</Text>
-                            <Text variant="bodyMedium">Ano {item.ano}</Text>
-                            <Text variant="bodyMedium">Fabricante {item.fabricante}</Text>
-                            <Text >Cliente {item.clientes_id}</Text>
-                            <Text >Concessionaria {item.concessionaria_id}</Text>
+                            <Text variant="bodyMedium">Nome {item.nome}</Text>
+                            <Text >Fabricante {item.fabricante}</Text>
+                            <Text >Ano {item.ano}</Text>
                             <Text >Acessorios {item.acessorios_id}</Text>
+                            <Text >Clientes {item.clientes_id}</Text>
+                            <Text >Concessionaria {item.concessionaria_id}</Text>
                         </Card.Content>
                         <Card.Actions>
                             <IconButton icon='pencil-outline'

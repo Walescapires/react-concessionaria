@@ -1,18 +1,16 @@
 import * as Yup from 'yup';
 
 const carrosValidator = Yup.object().shape({
-  modelo: Yup.string()
+    nome: Yup.string()
+      .required('Campo obrigatório'),
+      fabricante: Yup.string(),
+      ano: Yup.number(),
+      acessorios_id: Yup.string()
     .required('Campo obrigatório'),
-  ano: Yup.number()
+      concessionaria_id: Yup.string()
     .required('Campo obrigatório'),
-  fabricante: Yup.string()
+      clientes_id: Yup.string()
     .required('Campo obrigatório'),
-  cliente_id: Yup.string()
-    .required('Campo obrigatório'),
-  concessionaria_id: Yup.string()
-    .required('Campo obrigatório'),
-  acessorio_id: Yup.string()
-    .required('Campo obrigatório')
-})
+  })
 
 export default carrosValidator

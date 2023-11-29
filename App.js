@@ -6,7 +6,7 @@ import ConcessionariaStack from './screens/Concessionaria/ConcessionariaStack';
 import ClienteStack from './screens/Cliente/ClienteStack';
 import AcessoriosStack from './screens/Acessorios/AcessoriosStack';
 import OficinaStack from './screens/Oficina/OficinaStack';
-import CarrosStack from './screens/Carros/CarrosStack';
+import CarroStack from './screens/Carros/CarroStack';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -56,7 +56,7 @@ export default function App() {
             />
             <Tab.Screen
               name="Carros"
-              component={CarrosStack}
+              component={CarroStack}
               options={{
                 tabBarIcon: () => (
                   <MaterialCommunityIcons name="car-multiple" size={26} />
